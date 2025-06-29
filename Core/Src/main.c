@@ -19,10 +19,13 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "tim.h"
+#include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdio.h>
+#include <string.h>
 #include "Motor.h"
 /* USER CODE END Includes */
 
@@ -44,7 +47,8 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+extern uint8_t Encode_Send_Flag;
+extern int16_t Encoder1_Count, Encoder2_Count;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -55,7 +59,11 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+int fputc(int ch, FILE *f) {
+  (void)f;  // 忽略参数，避免警告
+  HAL_UART_Transmit(&huart1, (const uint8_t *)&ch, 1, 500); // 发送一个字节
+  return ch;
+}
 /* USER CODE END 0 */
 
 /**
@@ -88,6 +96,10 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_TIM2_Init();
+  MX_TIM3_Init();
+  MX_TIM4_Init();
+  MX_USART1_UART_Init();
+  MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
   Motor_Init();
   HAL_Delay(3000);
@@ -98,6 +110,12 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    if(Encode_Send_Flag)
+    {
+      Encode_Send_Flag = 0;
+      printf("%d,%d\r\n", Encoder1_Count, Encoder2_Count);
+    }
+    
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
