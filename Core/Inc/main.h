@@ -65,10 +65,10 @@ void Error_Handler(void);
 #define AIN1_GPIO_Port GPIOA
 #define AIN2_Pin GPIO_PIN_3
 #define AIN2_GPIO_Port GPIOA
-#define AIN3_Pin GPIO_PIN_4
-#define AIN3_GPIO_Port GPIOA
-#define AIN4_Pin GPIO_PIN_5
-#define AIN4_GPIO_Port GPIOA
+#define BIN1_Pin GPIO_PIN_4
+#define BIN1_GPIO_Port GPIOA
+#define BIN2_Pin GPIO_PIN_5
+#define BIN2_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
 

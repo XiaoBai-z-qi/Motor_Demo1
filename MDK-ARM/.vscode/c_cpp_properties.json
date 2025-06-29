@@ -8,6 +8,7 @@
                 "e:\\Prepare for the match\\Motor_Demo1\\Drivers\\STM32F4xx_HAL_Driver\\Inc\\Legacy",
                 "e:\\Prepare for the match\\Motor_Demo1\\Drivers\\CMSIS\\Device\\ST\\STM32F4xx\\Include",
                 "e:\\Prepare for the match\\Motor_Demo1\\Drivers\\CMSIS\\Include",
+                "e:\\Prepare for the match\\Motor_Demo1\\Base",
                 "D:\\keil5\\Keil5\\ARM\\ARMCC\\include",
                 "D:\\keil5\\Keil5\\ARM\\ARMCC\\include\\rw",
                 "e:\\Prepare for the match\\Motor_Demo1\\MDK-ARM",
